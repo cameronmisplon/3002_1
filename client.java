@@ -4,11 +4,10 @@ import java.util.*;
 
 public class client{
 	public static void main(String[] args){
-		int port = 32517;
+		int port = 57234;
 		byte[] message;
 		String echo;
-		byte[] ipAddr = new byte[]{127,0,1,1};
-		try(Socket tcpsocket = new Socket(InetAddress.getByAddress(ipAddr),port))
+		try(Socket tcpsocket = new Socket(InetAddress.getByName("105.185.168.28"),57234))
 		{
 			InputStream tcpinput = tcpsocket.getInputStream();
 			BufferedReader tcpreader = new BufferedReader(new InputStreamReader(tcpinput));

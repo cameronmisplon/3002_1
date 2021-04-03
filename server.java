@@ -1,16 +1,15 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
-
 public class server {
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		DatagramSocket udpsocket;
 		Socket tcpsocket;
 		byte[] message = new byte[256];
 		int port = 32517;
 		String messagereceived;
 		try (ServerSocket serverSocket = new ServerSocket(port)){
-			System.out.println("Server is up on 127.0.1.1 listening to port 32517");
+			System.out.println("Server is up");
 			while(true){
 				tcpsocket  = serverSocket.accept();
 				OutputStream tcpoutput = tcpsocket.getOutputStream();

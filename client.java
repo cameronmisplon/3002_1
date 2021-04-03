@@ -7,6 +7,19 @@ public class client{
 		int port = 57234;
 		byte[] message;
 		String echo;
+		String ip = " ";
+		String connectionType;
+		Console input = System.console();
+		
+		System.out.println("Welcome to the chat service Facebook wishes they made");
+		connectionType = input.readLine("Are you on the same LAN as server: ( Yes(Y) or No(N) ) \n");
+		if (connectionType.equals("Yes") || connectionType.equals("Y")) {
+			ip = "127.0.1.1";
+			port = 32517;
+		}
+		else if (connectionType.equals("No") || connectionType.equals("N")) {
+			ip = "105.185.168.28";
+		}
 		try(Socket tcpsocket = new Socket(InetAddress.getByName("105.185.168.28"),57234))
 		{
 			InputStream tcpinput = tcpsocket.getInputStream();
@@ -14,7 +27,6 @@ public class client{
 			System.out.println(tcpreader.readLine());
 			InetAddress serveraddress = tcpsocket.getInetAddress();
 			DatagramSocket udpsocket = new DatagramSocket();
-			Console input = System.console();
 			String text;
 			tcpsocket.close();
 			do{

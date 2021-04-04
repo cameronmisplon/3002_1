@@ -20,7 +20,7 @@ public class client{
 		else if (connectionType.equals("No") || connectionType.equals("N")) {
 			ip = "105.185.168.28";
 		}
-		try(Socket tcpsocket = new Socket(InetAddress.getByName("105.185.168.28"),57234))
+		try(Socket tcpsocket = new Socket(InetAddress.getByName(ip),port))
 		{
 			InputStream tcpinput = tcpsocket.getInputStream();
 			BufferedReader tcpreader = new BufferedReader(new InputStreamReader(tcpinput));
